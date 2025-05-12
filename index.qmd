@@ -1,24 +1,41 @@
 # Welcome! {.unnumbered}
 
-Welcome to the course materials for the **Introduction to R with Tidyverse** course. 
+Welcome to the course materials for the **Introduction to Quantitative Analysis and Data Visualisation Using R** course. 
 
-This course is designed to equip you with the essential skills to leverage the power of R and Tidyverse for their work. The course begins with a gentle introduction to the user-friendly RStudio interface and the basics of the R coding language, or syntax. This makes it ideal for anyone with little or no prior coding experience, or those looking for a refresher of the basics.
+This course is designed to equip you with the essential skills to leverage the power of R and Tidyverse. The course begins with a gentle introduction to the user-friendly RStudio interface and the basics of the R coding language, or syntax. This makes it ideal for anyone with little or no prior coding experience, or those looking for a refresher of the basics.
 
 Through this course, you will learn how to manipulate, transform, and clean data efficiently, and how to create compelling visualisations to communicate your findings effectively. Throughout the course, we will discuss best practices for reproducible coding. 
 
-:::{.stylebox}
+## How to use this book
+This book provides a combination of written explanations, code examples, and practical exercises to allow you to practice what you have learned. 
 
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
+Code examples will be provided in code blocks, such as this one:
 
-::::{.stylebox-body}
-Throughout these notes, you will also see boxes like this containing 'style tips'. These ensure that your code follows the [Tidyverse style guide](https://style.tidyverse.org/), making it as consistent and readable as possible.
-::::
+```{r}
+#| label: code-block-example
+#| eval: false
 
+1 + 1
+```
+
+Code in these blocks can be copied and pasted into your R session to save time when coding. We recommend typing the code yourself to familiarise yourself with the coding process and use the copy option if you are really stuck! 
+
+Throughout the book, you will see colour-coded boxes which are used to highlight important points, give warnings, or give tips such as keyboard shortcuts.
+
+:::{.callout-note}
+These boxes will be used to highlight important messages, supplementing the main text.
 :::
+
+:::{.callout-tip}
+## Hint
+
+These boxes will contain useful hints, such as keyboard shortcuts, that can make your coding life a little easier!
+:::
+
+:::{.callout-warning}
+These boxes will contain warnings and highlight areas where you need to be more cautious in your coding or analysis.
+:::
+
 
 ## Accessibility options
 These notes are available in dark mode by toggling the ![](images/dark_mode.png) button. 
@@ -28,9 +45,23 @@ Notes are also available to download as a PDF file using the ![](images/pdf.png)
 ## Data used for the course
 The examples and exercises in these materials are based on real world data. This data relates to the Core Spending Power (CSP) of English local authorities between 2015 and 2020.
 
-Data for this course can be downloaded from the `data` folder of this course's [repository](https://github.com/sophie-a-lee/Introduction_R_Tidyverse_course).
+Data for this course can be downloaded from the `data` folder of this course's [repository](https://github.com/deanmarchiori/intro-quant-analysis).
 
 For more information about this data, including variable descriptions and sources, see [the appendix](data_description.qmd).
 
-## License
-I believe that science should not be behind a paywall, that is why these materials are available for free online, licensed under a [CC BY-SA licence](https://creativecommons.org/licenses/by-sa/4.0/).
+## Feedback and issues
+If you spot a bug or mistake in these notes, please let me know by [raising an issue](https://github.com/deanmarchiori/intro-quant-analysis/issues).
+
+## Contact Me  
+If you enjoyed this course and would like me to run a session for your organisation, or if you would like to engage me as a consultant on a project get in touch at [deanmarchiori.com](https://www.deanmarchiori.com/)
+
+## Licence and Attribution
+
+I believe that science should not be behind a paywall, that is why these materials are available for free online, in accordance with the licence.  
+
+ This work is an adaptation of original work "Introduction to R with Tidyverse".  The material has been modified, to compare against the original works see [here](https://github.com/sophie-a-lee/Introduction_R_Tidyverse_course).
+ 
+  <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/sophie-a-lee/regression_course">Regressions with R short course</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/sophie-a-lee">Sophie Lee</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p> 
+
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.
+ 

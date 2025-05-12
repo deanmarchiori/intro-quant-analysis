@@ -3,30 +3,17 @@ project:
   output-dir: docs
 
 book:
-  title: "Introduction to R with Tidyverse"
-  author: "Sophie Lee"
+  title: "Introduction to Quantitative Analysis and Data Visualisation Using R"
+  author: 
+    - "Sophie Lee"
+    - "Dean Marchiori"
   downloads: [pdf]  
   search: true
-  sidebar:
-    collapse-level: 1
-    style: docked
   navbar:
     right: 
       - icon: github
-        href: https://github.com/sophie-a-lee/
+        href: https://github.com/deanmarchiori/intro-quant-analysis
         aria-label: Github
-      - icon: book
-        href: https://scubed.rbind.io/
-        aria-label: Website
-      - icon: twitter
-        href: https://x.com/SophieStats10
-        aria-label: Twitter
-      - icon: linkedin
-        href: https://www.linkedin.com/in/sophie-a-lee/
-        aria-label: LinkedIn
-      - icon: cup-hot
-        href: https://buymeacoffee.com/sophie_a_lee
-        aria-label: Buy me a coffee
   chapters:
     - index.qmd
     - session1_notes.qmd
@@ -37,11 +24,12 @@ book:
   appendices: 
     - data_description.qmd
     - exercise_solutions.qmd
+    - setup.qmd
 
 format:
   html:
     theme:
-      light: [pulse, style.scss]
+      light: flatly
       dark: darkly
   pdf:
     documentclass: scrreprt

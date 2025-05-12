@@ -4,6 +4,37 @@
 knitr::opts_chunk$set(echo = TRUE, collapse = TRUE)
 ```
 
+## About R  
+
+R is programming language used for interactive data analysis. It is commonly used for statistical computing and visualisation. R was first developed at the University of Auckland by Ross Ihaka and Robert Gentlemen in 1993. Today is remains a popular choice for data analysis, data science and scientific work in various fields.  
+
+## Conceptual Overview  
+
+R comes bundled with a with core code base and a number of additional extensions (called R packages). These automatically come with R and are often referred to base R packages. In almost all real-world cases, additioanl R packages will be required to implement special algorithms or provide functionality not contained in the base R packages. These packages are developed by contributors around the world and submitted to [CRAN (Comprehensive R Archive Network)](https://cran.r-project.org/). This service is the primary location for downloading reliable and well developed R packages. Later we will show how to download additional R packages from CRAN. 
+
+R as a standalone item of software is rarely used directly by users. Often an Interactive Development Environment (IDE) is used to provide a better user interface for working with R. The most common IDE in use for more R work is [RStudio](https://posit.co/downloads/), developed by Posit.  
+
+For a quickstart guide on setting up R and RStudio see [here](setup.qmd)
+
+
+```{mermaid}
+graph TD
+    User[User]
+    CRAN[CRAN Repository]
+
+    subgraph Computer[Computer]
+        RStudio[RStudio IDE]
+        R[R Software]
+        RStudio -->|runs| R
+        R --> |Bundled with| Base[Base Packages]
+    end
+
+    User -->|uses| Computer
+    R -->|downloads packages from| CRAN
+
+    style Computer fill:lightblue;
+```
+
 ## The RStudio interface 
 
 There are a number of software packages based on the R programming language aimed at making writing and running analyses easier for users. They all run R in the background but look different and contain different features. 
@@ -23,19 +54,10 @@ The screenshot below shows the RStudio interface which comprises of four windows
 
 All analysis and actions in R are carried out using the R syntax language. R script files allow you to write and edit code before running it in the console window. 
 
-:::{.stylebox}
-
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
-
-::::{.stylebox-body}
+:::{.callout-tip}
 Limit script files to 80 characters per line to ensure it is readable. 
 
 RStudio has an option to add a margin that makes this easier to adhere to. Under the *Tools* drop-down menu, select *Global options*. Select *Code* from the list on the right, then under the *Display* tab, tick the *Show margin* box.
-::::
 
 :::
 
@@ -45,20 +67,10 @@ Code entered into the script file does not run automatically. To run commands fr
 
 The main advantage of using the script file rather than entering the code directly into the console is that it can be saved, edited and shared. To save a script file, use *File -> Save As…* from the drop down menu, or click the ![save icon](images/save_shortcut.png) icon at the top of the window. It is important to save the script files at regular intervals to avoid losing work. Once the script file has been saved, we can also use the keyboard shortcuts `Ctrl + s` on Windows and `Command + s` on Mac to save the latest script file.
 
-:::{.stylebox}
-
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
-
-::::{.stylebox-body}
+:::{.callout-tip}
 Script file names should be meaningful, lower case, and end in `.R`. Avoid using special characters in file names, including spaces. Use `_` instead of spaces.
 
 Where files should be run in a specific order, prefix the file name with numbers.
-::::
-
 :::
 
 Past script files can be opened using *File -> Open File…* from the drop-down menu or by clicking the ![open icon](images/open_shortcut.png) icon and selecting a `.R` file. The keyboard shortcut to open an existing script file is `Ctrl + o` on Windows, and `Command + o` on Macs.
@@ -102,17 +114,6 @@ Any text written in the R console or script file can be treated the same as text
 
 When creating script files, it is important to ensure they are clear and easy to read. Comments can be added to script files using the `#` symbol. R will ignore any text following the `#` on the same line. 
 
-:::{.stylebox}
-
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
-
-::::{.stylebox-body}
-Combining `#` and `-` creates sections within a script file, making them easier to navigate and organise. 
-
 For example:
 
 ```{r section style}
@@ -120,14 +121,9 @@ For example:
 
 # Tidy data ----------
 ```
-::::
-
-:::
 
 
-:::{.callout-note}
-### Helpful hint
-
+:::{.callout-tip}
 To comment out chunks of code, highlight the rows and use the keyboard shortcut *ctrl + shift + c* on Windows, and *Command + shift + c* on Mac
 :::
 
@@ -139,15 +135,7 @@ The choice of brackets in R coding is particularly important as they all have di
 
 All standard notation for mathematical calculations (`+`, `-`, `*`, `/`, `^`, etc.) are compatible with R. At its simplest level, R is just a very powerful calculator!
 
-:::{.stylebox}
-
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
-
-::::{.stylebox-body}
+:::{.callout-tip}
 Although R will work whether a space is added before/after a mathematical operator, the [style guide](https://style.tidyverse.org/syntax.html) recommends to add them surrounding most mathematical operations (`+`, `-`, `*`, `/`), but not around `^`. 
 
 For example:
@@ -159,9 +147,8 @@ For example:
 
 # Un-stylish code
 1959-683
-(351+457)^2 - (213 + 169) ^ 2
+(351+457)^2-(213+169)^2
 ```
-::::
 
 :::
 
@@ -179,18 +166,8 @@ When you have finished this exercise, select the entire script file (using `ctrl
 ### Objects
 One of the main advantages to using R over other software packages such as SPSS is that more than one dataset can be accessed at the same time. A collection of data stored in any format within the R session is known as an **object**. Objects can include single numbers, single variables, entire datasets, lists of datasets, or even tables and graphs.
 
-:::{.stylebox}
-
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
-
-::::{.stylebox-body}
+:::{.callout-tip}
 Object names should only contain lower case letters, numbers and `_` (instead of a space to separate words). The should be meaningful and concise.
-::::
-
 :::
 
 Objects are defined in R using the `<-` or `=` symbols. For example, 
@@ -201,17 +178,9 @@ object_1 <- 81
 
 Creates an object in the environment named `object_1`, which takes the value `81`. This will appear in the environment window of the console (window C from the interface shown earlier).
 
-:::{.stylebox}
+:::{.callout-tip}
 
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
-
-::::{.stylebox-body}
 Although both work, use `<-` for assignment, not `=`.
-::::
 
 :::
 
@@ -236,7 +205,13 @@ For example, if we had an object with 6 elements and when called the first line 
 
 ### Functions
 
-**Functions** are built-in commands that allow R users to run analyses. All functions require the definition of arguments within round brackets `()`. Each function requires different information and has different arguments that can be used to customise the analysis. A detailed list of these arguments and a description of the function can be found in the function's associated **help file**.
+**Functions** are built-in commands that allow R users to run analyses. All functions require the definition of arguments within round brackets `()`. The code for the function is typically contained in curly braces `{}`. Each function requires different information and has different arguments that can be used to customise the analysis. A detailed list of these arguments and a description of the function can be found in the function's associated **help file**.  
+
+```{r}
+square_x <- function(x) {
+    argument^2
+}
+```
 
 ### Help files
 
@@ -256,7 +231,7 @@ Help files contain the following information:
  
 
 ### Error and warning messages
-Where a function or object has not been correctly specified, or their is some mistake in the syntax that has been sent to the console, R will return an error message. These messages are generally informative and include the location of the error.
+Where a function or object has not been correctly specified, or there is some mistake in the syntax that has been sent to the console, R will return an error message. These messages are generally informative and include the location of the error.
 
 The most common errors include misspelling functions or objects:
 
@@ -276,7 +251,7 @@ When R returns an error message, this means that the operation has been complete
 
 Warnings are included to indicate that R suspects something in the operation may be wrong and should be checked. There are occasions where warnings can be ignored but this is only after the operation has been checked. 
 
-When working within the R console, if an incomplete command is run, a `+` symbol will appear in the console, rather than the usual `>`. This indicates that R expects you to keep writing the previous code. To overcome this issue, either finish the command on the next line of the console, or press the `esc` button on your keyboard to start from scratch.
+When working within the R console, if an incomplete command is run, a `+` symbol will appear in the console, rather than the usual `>`. This indicates that R expects you to keep writing the previous code. To overcome this issue, either finish the command on the next line of the console, or press the `Esc` button on your keyboard to start from scratch.
 
 One of the benefits of using RStudio rather than the basic R package is that it will suggest object or function names after typing the first few letters. This avoids spelling mistakes and accidental errors when running code. To accept the suggestion, either click the correct choice with your mouse or use the `tab` button on your keyboard.
 
@@ -297,7 +272,7 @@ R packages are a collection of functions and datasets developed by R users that 
 
 
 #### Installing packages from CRAN
-The quickest way to install a package in R is by using the `install.packages` function. This sends RStudio to the online repository of tested and verified R packages (known as [CRAN](https://cran.r-project.org/)) and downloads the package files onto the machine you are currently working from in temporary files. Ensure that the package you wish to install is spelled correctly and surrounded by `''`.
+The quickest way to install a package in R is by using the `install.packages()` function. This sends RStudio to the online repository of tested and verified R packages (known as [CRAN](https://cran.r-project.org/)) and downloads the package files onto the machine you are currently working from in temporary files. Ensure that the package you wish to install is spelled correctly and surrounded by `''`.
 
 :::{.callout-warning} 
 The `install.packages` function requires an internet connection, and can take a long time if the package has a lot of dependent packages that also need downloading. 
@@ -306,20 +281,10 @@ This process should only be carried out the first time a package is used on a ma
 :::
 
 #### Loading packages to an R session
-Every time a new session of RStudio is opened, packages must be reloaded. To load a package into R (and gain access to the associated functions and data), use the `library` function. 
+Every time a new session of RStudio is opened, packages must be reloaded. To load a package into R (and gain access to the associated functions and data), use the `library()` function. 
 
-Loading a package does not require an internet connection, but will only work if the package has already been installed and saved onto the computer you are working from. If you are unsure, use the function `installed.packages` to return a list of all packages that are loaded onto the machine you are working from.
+Loading a package does not require an internet connection, but will only work if the package has already been installed and saved onto the computer you are working from. If you are unsure, use the function `installed.packages()` to return a list of all packages that are loaded onto the machine you are working from.
 
-:::{.stylebox}
-
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
-
-::::{.stylebox-body}
+:::{.callout-tip}
 Add your `library` function at the beginning of your script file. This reminds you to re-load packages when opening a new R session, and reduces the chance of error messages from functions requiring these packages.
-::::
-
 :::

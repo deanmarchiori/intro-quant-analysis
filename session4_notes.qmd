@@ -1,19 +1,17 @@
 # Data visualisation with ggplot2
 
 ```{r setup, include=FALSE}
-pacman::p_load(flextable, tidyverse)
-
+library(tidyverse)
+library(flextable)
 knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, message = FALSE)
 
 csp_2020 <- read_csv("data/CSP_2020.csv")
 csp_long2 <- read_csv("data/CSP_long_201520.csv")
 ```
 
-## Data visualisation with ggplot2
-
 Data visualisation is a powerful tool with multiple important uses. First, visualisations allow us to explore the data, identify potential outliers and errors, or check that the variables behave in the way we would expect them to if they had been recorded correctly. Visualisations can also be used as an analysis tool, allowing us to identify trends in the data or differences between groups. Finally, visualisations can help to convey messages to an audience in a clear, concise way that is often more powerful than presenting them using numbers or text. In some cases, data visualisations can show results so clearly that further analysis is arguably unnecessary. 
 
-### Choosing the most appropriate visualisation
+## Choosing the most appropriate visualisation
 
 The most appropriate choice of visualisation will depend on the type of variable(s) we wish to display, the number of variables and the message we are trying to disseminate. Common plots used to display combinations of different types of data are given in following table: 
 
@@ -58,26 +56,26 @@ flextable(vis_tab) %>%
 
 ![Table 6.1: Common visualisations by number and type of variables, with ggplot2 geom](images/visualisation_table.png)
 
-R is very flexible when it comes to visualising data and contains a wide variety of options to customise graphs. This section will focus on the Tidyverse package `ggplot2` and introduce some of the more commonly used graphical functions and parameters but is by no means comprehensive. 
+R is very flexible when it comes to visualising data and contains a wide variety of options to customise graphs. This section will focus on the tidyverse package `{ggplot2}` and introduce some of the more commonly used graphical functions and parameters but is by no means comprehensive. 
 
-### The ggplot2 package
+## The `{ggplot2}` package
 
-The `ggplot2` package implements the ‘grammar of graphics’, a system that aims to describe all statistical graphics in terms of their components or layers. All graphics can be broken down into the same components: the data, a coordinate system (or plot area) and some visual markings of the data. More complex plots may have additional layers but all must contain these three. 
+The `{ggplot2}` package implements the [‘grammar of graphics’](https://vita.had.co.nz/papers/layered-grammar.html), a system that aims to describe all statistical graphics in terms of their components or layers. All graphics can be broken down into the same components: the data, a coordinate system (or plot area) and some visual markings of the data. More complex plots may have additional layers but all must contain these three. 
 
 For example, in the `csp_2020` dataset, we may wish to explore the relationship between the settlement funding assessment (`sfa_2020`) and council tax total (`ct_total_2020`) spending for each local authority. To visualise the relationship between two continuous numeric variables, a **scatterplot** would be most appropriate. 
 
-Within the `ggplot2` package, we first use the `ggplot` function to create a coordinate system (a blank plot space) that we can add layers and objects to. Within this function, we specify the data that we wish to display on the coordinate system:
+Within the `{ggplot2}` package, we first use the `ggplot()` function to create a coordinate system (a blank plot space) that we can add layers and objects to. Within this function, we specify the data that we wish to display on the coordinate system:
 
 ```{r ggplot initialisation, eval=FALSE}
 ggplot(data = csp_2020)
 ```
 
-To add information to this graph, we add a **geom** layer: a visual representation of the data. There are many different geom objects built into the ggplot2 package (begin typing `?geom` into the console to see a list). The `geom_point` function is used to create scatterplots.
+To add information to this graph, we add a **geom** layer: a visual representation of the data. There are many different geom objects built into the ggplot2 package (begin typing `?geom` into the console to see a list). The `geom_point()` function is used to create scatterplots.
 
-Each geom object must contain a mapping argument, coupled with the `aes` function which defines how the variables in the dataset are visualised. In this case, we use the `aes` function to specify the variables on the x and y axes but it can also be used to set the colour, size or symbol based on variable values. 
+Each geom object must contain a mapping argument, coupled with the `aes()` function which defines how the variables in the dataset are visualised. In this case, we use the `aes()` function to specify the variables on the x and y axes but it can also be used to set the colour, size or symbol based on variable values. 
 
 :::{.callout-warning} 
-Although `ggplot2` is a tidyverse package, it uses a different method of piping to the  other packages. Use the `+` symbol to add an extra layer when working in `ggplot`.
+Although `{ggplot2}` is a tidyverse package, it uses a different method of piping to the  other packages. Use the `+` symbol to add an extra layer when working in `ggplot`.
 :::
 
 ```{r Scatterplot SFA and CT total 2020}
@@ -91,24 +89,18 @@ The resulting scatterplot shows a positive association between the SFA and counc
 
 ```{r Find outlier}
 # Using the data csp_2020
-csp_2020 %>% 
-  # Return just rows where sfa_2020 is over 1000, and then
-  filter(sfa_2020 > 1000) %>% 
-  # Return the authority names
+csp_2020 |>  
+  filter(sfa_2020 > 1000) |>  
   select(authority)
 ```
 
-This outlier is the Greater London Authority which is a combination of local authorities that are already included in the dataset. Including this observation would introduce duplicates into the analysis, and so this observation should be removed to avoid invalid results. To remove the Greater London Authority observation, we can combine the `filter` and `ggplot` functions using pipes:
+This outlier is the Greater London Authority which is a combination of local authorities that are already included in the dataset. Including this observation would introduce duplicates into the analysis, and so this observation should be removed to avoid invalid results. To remove the Greater London Authority observation, we can combine the `filter()` and `ggplot()` functions using pipes:
 
 ```{r Scatter without London}
-# Take the csp_2020 data, and then
-csp_2020 %>% 
-  # Return all rows where authority is not equal to Greater London Authority,
-  # and then
-  filter(authority != "Greater London Authority") %>% 
-  # Generate a plot
-  ggplot( ) + 
-  # Add visual markings based on the data
+# Take the csp_2020 data, and then Return all rows where authority is not equal to Greater London Authority
+csp_2020 |> 
+  filter(authority != "Greater London Authority") |>  
+  ggplot() + 
   geom_point(aes(x = sfa_2020, y = ct_total_2020))
 ```
 
@@ -116,19 +108,20 @@ Graphs appear in the plot window in RStudio and can be opened in a new window us
 
 New graphs will replace existing ones in this window but all graphs created in the current session of R can be explored using the ![arrows icon](images/arrow_shortcut.png) icons. 
 
-Graphs can be stored as objects using the `<-` symbol. These objects can then be saved as picture or PDF files using the `ggsave` function:
+Graphs can be stored as objects using the `<-` symbol. These objects can then be saved as picture or PDF files using the `ggsave()` function:
 
 ```{r ggsave, eval = FALSE}
-# Create a new object, beginning from csp_2020, and then
-sfa_ct_plot <- csp_2020 %>% 
-  # Return all rows where authority name is not GLA, and then
-  filter(authority != "Greater London Authority") %>%
-  # Create a ggplot area
-  ggplot( ) + 
-  # Add visual markings from the data
-  geom_point(aes(x = sfa_2020, y = ct_total_2020))
-
+# Create a new object, beginning from csp_2020
+# Return all rows where authority name is not GLA, and then
+# Create a ggplot area
+# Add visual markings from the data
 # Save the graph object as a png file
+
+sfa_ct_plot <- csp_2020 |> 
+    filter(authority != "Greater London Authority") |> 
+    ggplot() +
+    geom_point(aes(x = sfa_2020, y = ct_total_2020))
+
 ggsave(sfa_ct_plot, filename = "sfa_ct_plot.png")
 ```
 
@@ -138,24 +131,23 @@ ggsave(sfa_ct_plot, filename = "sfa_ct_plot.png")
 3.	Based on the visualisation above, create a summary table for the SFA variable containing the minimum and maximum, and appropriate measures of the centre/average and spread.
 
 ```{r Save csp_nolon object for future code, include = FALSE}
-csp_nolon_2020 <- csp_2020 %>% 
+csp_nolon_2020 <- csp_2020 |> 
   filter(authority != "Greater London Authority")
 ```
 
 
-### Customising visualisations
-Additional variables can be included into a visualisation within the mapping argument of a `geom` function. For example, we could explore the relationship between SFA and council tax across regions by colouring points based on the region:
+## Customising visualisations
+Additional variables can be included into a visualisation within the mapping argument of a `geom_` function. For example, we could explore the relationship between SFA and council tax across regions by colouring points based on the region:
 
 ```{r Scatterplot, SFA and council tax by region}
 ggplot(data = csp_nolon_2020) + 
   geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = region))
-
 ```
 
 By default, R uses alphabetical ordering for character variables. To change this order, the variable must be converted into a **factor**. A factor is how R recognises categorical variables. For example, to order the region legend so that the London region appears first, followed by other regions from north to south, we would use the `mutate` function, combined with the `factor` function to create a new, ordered variable. The argument `levels` allows us to specify the order of categories in a factor:
 
 ```{r Factor region}
-csp_nolon_2020_new <- csp_nolon_2020 %>% 
+csp_nolon_2020_new <- csp_nolon_2020 |>  
   mutate(region_fct = factor(region, 
                              levels = c("L", "NW", "NE", "YH", "WM", 
                                         "EM", "EE", "SW", "SE")))
@@ -166,9 +158,9 @@ ggplot(data = csp_nolon_2020_new) +
 
 Arguments that can be adjusted within geoms include:
 
-- `colour`: change the colour (if point or line) or outline (if bar or histogram) of the markings
-- `size`: change the size of the markings (if point used)
-- `shape`: change the shape of markings (for points)
+- `colour`: Change the colour (if point or line) or outline (if bar or histogram) of the markings
+- `size`: Change the size of the markings (if point used)
+- `shape`: Change the shape of markings (for points)
 - `fill`: Change the colour of bars in bar charts or histograms
 - `linewidth`: Change the line width
 - `linetype`: Choose the type of line (e.g. `dotted`)
@@ -188,7 +180,7 @@ ggplot(csp_nolon_2020_new) +
              colour = "blue")
 ```
 
-### Exercise 6 {.unnumbered}
+## Exercise 6 {.unnumbered}
 
 1. What is the problem with the following code? Fix the code to change the shape of all the points.
 
@@ -202,9 +194,9 @@ ggplot(csp_nolon_2020) +
 3.	Add a line of best fit for each region (hint: make each line a different colour).
 
 
-### Scale functions
+## Scale functions
 
-#### Customising axes
+### Customising axes
 Scale functions allow us to customise aesthetics defined in geom objects such as colours and axes labels. They take the form `scale_'aesthetic to customise'_'scale of variable’`. For example, `scale_x_continuous` customises the x axis when the variable is continuous, and `scale_x_discrete` can be used where the variable is discrete or categorical. Arguments to customise the x or y axes include:
 
 - `name = ` to change the axis title
@@ -243,54 +235,51 @@ ggplot(csp_nolon_2020_new) +
 
 We can now clearly see the strong positive association between SFA and council tax spending in local authorities with lower values of this without losing any information. 
 
-#### Customising colour scales
+### Customising colour scales
 There are a wide range of options for customising the colour aesthetics of geoms. These include pre-defined colour palettes, such as `scale_colour_viridis_c` for continuous variables, or `scale_colour_viridis_d` for discrete or categorical variables. Viridis colour palettes are designed to be colourblind friendly and print well in grey scale. There are also many R packages containing colour palettes for different scenarios. 
 
 Colour palettes can be created manually for categorical variables using the `scale_colour_manual` function. Here, the argument `values` allows us to specify a colour per category. 
 
-:::{.stylebox}
-
-::::{.stylebox-header}
-:::::{.stylebox-icon}
-:::::
-Style tip
-::::
-
-::::{.stylebox-body}
+:::{.callout-tip}
 R contains a list of 657 pre-programmed colours that can be used to create palettes (run `colours()` in the console for a full list). 
 
 Hexadecimal codes can also be included instead in the form ```#rrggbb``` (where rr (red), gg (green), and bb (blue) are numbers between 00 and 99 giving the level of intensity of each colour). 
-::::
-
 :::
 
-Where a colour palette will be used across multiple plots, defining this list of colours as a vector and then entering this into `scale_colour_manual` will reduce repetition:
+Where a colour palette will be used across multiple plots, defining this list of colours as a vector and then entering this into `scale_colour_manual()` will reduce repetition:
 
 ```{r region colour palette}
-region_palette <- c("aquamarine2", "blue", "chartreuse2", "coral", "orchid",
-                    "firebrick", "gold3", "violetred", "grey50")
+region_palette <- c(
+    "aquamarine2", "blue", "chartreuse2", "coral", "orchid",
+    "firebrick", "gold3", "violetred", "grey50"
+)
 
-ggplot(csp_nolon_2020_new) + 
-  geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = region_fct)) +
-  scale_x_continuous(name = "SFA",  trans = "log1p") +
-  scale_y_continuous(name = "Council tax", trans = "log1p") +
-  scale_colour_manual(name = "Region", values = region_palette)
+ggplot(csp_nolon_2020_new) +
+    geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = region_fct)) +
+    scale_x_continuous(name = "SFA", trans = "log1p") +
+    scale_y_continuous(name = "Council tax", trans = "log1p") +
+    scale_colour_manual(name = "Region", values = region_palette)
 ```
 
 
-Palettes can also be created using gradients with the `scale_colour_gradient` function, that specifies a two colour gradient from low to high, `scale_colour_gradient2` that creates a diverging gradient using low, medium, and high colours, and `scale_colour_gradientn` that creates an n-colour gradient.
+Palettes can also be created using gradients with the `scale_colour_gradient()` function, that specifies a two colour gradient from low to high, `scale_colour_gradient2()` that creates a diverging gradient using low, medium, and high colours, and `scale_colour_gradientn()` that creates an n-colour gradient.
 
-### Other labelling functions
+## Other labelling functions
 
-Although axis and legend labels can be updated within scale functions, the `labs` function exist as an alternative. This function also allows us to add titles and subtitles to visualisations:
+Although axis and legend labels can be updated within scale functions, the `labs()` function exist as an alternative. This function also allows us to add titles and subtitles to visualisations:
 
 ```{r labs function, eval = FALSE}
-labs(x = “x-axis name”, y = “y-axis name”,
-	colour = “Grouping variable name”, title = “Main title”,
-	subtitle = “Subtitle”, caption = “Footnote”)
+labs(
+  x = “x-axis name”, 
+  y = “y-axis name”,
+  colour = “Grouping variable name”, 
+  title = “Main title”,
+  subtitle = “Subtitle”, 
+  caption = “Footnote”
+  )
 ```
 
-The `annotate` function allows us to add text and other objects to a ggplot object. For example:
+The `annotate()` function allows us to add text and other objects to a ggplot object. For example:
 
 ```{r annotate, eval = FALSE}
 annotate(“text”, x = 50, y = 200, label = “Text label here”)
@@ -304,9 +293,9 @@ annotate(“rect”, xmin = 0, xmax = 10, ymin = 20, ymax = 50, alpha = 0.2)
 
 adds a rectangle to the graph. 
 
-### Theme functions
+## Theme functions
 
-The `theme` function modifies non-data components of the visualisation. For example, the legend position, label fonts, the graph background, and gridlines. There are many options that exist within the `theme` function (use `?theme` to list them all). 
+The `theme()` function modifies non-data components of the visualisation. For example, the legend position, label fonts, the graph background, and gridlines. There are many options that exist within the `theme()` function (use `?theme` to list them all). 
 
 :::{.callout-note}
 Many of the elements that can be customised within the `theme` function require an `element` wrapper. This wrapper is determined by the type of object we are customising (e.g. `element_text` when customising text, `element_rect` when customising a background, `element_blank` to remove something). Check `?theme` for more information.
@@ -322,7 +311,7 @@ ggplot(csp_nolon_2020_new) +
   scale_x_continuous(name = "SFA",  trans = "log1p") +
   scale_y_continuous(name = "Council tax", trans = "log1p") +
   scale_colour_manual(name = "Region", values = region_palette) + 
-  theme_void( )
+  theme_light()
 ```
 
 One benefit of using themes is that all visualisations will be consistent in terms of colour scheme, font size and gridlines. Although there are pre-built themes, we are able to create our own and save them as functions. These can then be used in place of R’s themes. For example:
@@ -330,6 +319,8 @@ One benefit of using themes is that all visualisations will be consistent in ter
 ```{r Create a theme}
 # Create a theme function
 theme_intro_course <- function( ) {
+  # start with a base theme (optional)
+  theme_light() +
   # Move the legend to the bottom 
   theme(legend.position =  "bottom",
         # Make the axis labels font size 10
@@ -337,9 +328,7 @@ theme_intro_course <- function( ) {
         # Make the axis titles font size 15
         axis.title = element_text(size = 15),
         # Make the graph title font size 20
-        title = element_text(size = 20),
-        # Make the plot area white with a grey outline
-        panel.background = element_rect(fill = "white", colour = "grey50"))
+        title = element_text(size = 20))
 }
 ```
 
@@ -356,7 +345,7 @@ ggplot(csp_nolon_2020_new) +
 
 Creating a custom theme is useful to ensure all visualisations are formatted consistently. 
 
-### Facet functions
+## Facet functions
 
 Faceting allows us to divide a plot into subplots based on some grouping variable within the data. This allows us to show multiple variables in the same visualisation without risking overloading the plot and losing the intended message. 
 
@@ -381,6 +370,7 @@ csp_long2 %>%
   theme_intro_course()
 ```
 
-### Exercise 7 {.unnumbered}
+## Exercise 7 {.unnumbered}
 
-Use an appropriate data visualisation to show how the total spend in each local authority has changed over the years between 2015 and 2020. Choose a visualisation that shows these trends over time and allows us to compare them between regions.  
+1. Use an appropriate data visualisation to show how the total spend in each local authority has changed over the years between 2015 and 2020.   
+2. Choose a visualisation that shows these trends over time and allows us to compare them between regions.  

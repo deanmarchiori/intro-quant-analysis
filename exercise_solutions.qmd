@@ -1,9 +1,8 @@
-# Exercise solutions {.unnumbered}
-
+# Exercise solutions
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, message = FALSE)
 
-pacman::p_load(tidyverse)
+library(tidyverse)
 
 csp_2020 <- read_csv("data/CSP_2020.csv")
 
@@ -14,7 +13,8 @@ csp_long2 <- read_csv("data/CSP_long_201520.csv")
 1.	Open a new script file if you have not already done so.
 2.	Save this script file into an appropriate location.
 
-## Solutions
+**Solutions**  
+
 1. To open a new R script, click the ![new file icon](images/open_shortcut.png) icon and select 'R script'.
 2. Save this file by following **File -> Save as...** from the drop-down menu, selecting the folder you are working from in this course, and giving the file an appropriate name.
 
@@ -26,9 +26,10 @@ csp_long2 <- read_csv("data/CSP_long_201520.csv")
   b. $3432 \div 8$
   c. $96 \times 72$
 
-When you have finished this exercise, select the entire script file (using `Ctrl + a` on windows or `Command + a` on Mac) and run it to ensure there are no errors in the code.
+When you have finished this exercise, select the entire script file (using `Ctrl + a` on windows or `Command + a` on Mac) and run it to ensure there are no errors in the code.  
 
-## Solutions
+**Solutions**  
+
 1. Add a `#` symbol to the script file before printing your name and the date, 
 
 2. After running the calculation, copy and paste the result after a `#` symbol to ensure there are no errors:
@@ -50,7 +51,8 @@ When you have finished this exercise, select the entire script file (using `Ctrl
   b. Create a new variable with the total overall spend in 2020 for local authorities in the East Midlands.
 
 
-## Solutions
+**Solutions**  
+
 1. First `filter` the data to return only rows which belong to the London region, then count the number of rows in this subgroup:
 
 ```{r n local authorities in London}
@@ -111,7 +113,8 @@ em_2020 <- em_2020 %>%
 3.	Convert the data object `csp_long2` back into wide format, with one row per local authority and one variable per total spend per year (**HINT:** start by selecting only the variables you need from the long data frame). Use the help file `?pivot_wider` and `vignette("pivot")` for more hints.
 4.	Using your new wide data frame, calculate the difference in total spending for each local authority between 2015 and 2020. How many local authorities have had an overall reduction in spending since 2015?
 
-## Solutions
+**Solutions**  
+
 1. Use the `summarise` function after grouping by the `year` and `region` variables:
 
 ```{r summarise total spend per region per year}
@@ -167,7 +170,8 @@ csp_total_wide %>%
 2.	Using the `csp_nolon_2020` data, create a data visualisation to check the distribution (or shape) of the SFA variable.
 3.	Based on the visualisation above, create a summary table for the SFA variable containing the minimum and maximum, and appropriate measures of the centre/average and spread.
 
-## Solutions
+**Solutions**  
+
 1. Create a new object using the `<-` symbol, use `filter` to remove the duplicate row:
 
 ```{r csp_nolon_2020}
@@ -203,7 +207,8 @@ ggplot(csp_nolon_2020) +
 
 3.	Add a line of best fit for each region (hint: make each line a different colour).
 
-## Solutions
+**Solutions**  
+
 1. Only aesthetics determined by variables in the data should lie inside the `aes` function, the `shape` argument should be outside of this:
 
 ```{r aesthetic solution}
@@ -234,7 +239,8 @@ ggplot(data = csp_nolon_2020,
 ## Exercise 7
 Use an appropriate data visualisation to show how the total spend in each local authority has changed over the years between 2015 and 2020. Choose a visualisation that shows these trends over time and allows us to compare them between regions.  
 
-## Solution
+**Solutions**  
+
 The most appropriate plot to show a change in variable over time is a line graph (with year on the x-axis and spend on the y-axis). To compare these between regions, we could set the colour of these lines, but as there are so many local authorities, this would overload the graph and make it hard to compare. As an alternative, we can facet this graph by region to show the line graphs on the same scale on the same output.
 
 Be sure to set appropriate axis labels, font sizes, etc. 
@@ -269,7 +275,8 @@ Create an RMarkdown file that creates a html report describing the trends in cor
 
 **Note:** You are not expected to be an expert in this data! Interpret these outputs as you would any other numeric variable measured over time.
 
-## Solutions
+**Solutions**  
+
 There are many different correct solutions to this exercise. All RMarkdown files should begin with a YAML header similar to the one below:
 
 ````{verbatim}

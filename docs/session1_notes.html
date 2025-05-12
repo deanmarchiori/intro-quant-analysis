@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R with Tidyverse - 1&nbsp; Introduction to R and RStudio</title>
+<title>1&nbsp; Introduction to R and RStudio – Introduction to Quantitative Analysis and Data Visualisation Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8d436d74498bbd5457388a3efe09766c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9828a0d4182cd2b8e9a8025f57f806eb.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,8 +104,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -137,7 +140,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -145,55 +148,35 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Introduction to R with Tidyverse</span>
+    <span class="navbar-title">Introduction to Quantitative Analysis and Data Visualisation Using R</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/sophie-a-lee/"> <i class="bi bi-github" role="img" aria-label="Github">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://scubed.rbind.io/"> <i class="bi bi-book" role="img" aria-label="Website">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://x.com/SophieStats10"> <i class="bi bi-twitter" role="img" aria-label="Twitter">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/sophie-a-lee/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://buymeacoffee.com/sophie_a_lee"> <i class="bi bi-cup-hot" role="img" aria-label="Buy me a coffee">
+    <a class="nav-link" href="https://github.com/deanmarchiori/intro-quant-analysis"> <i class="bi bi-github" role="img" aria-label="Github">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
-    <a href="./Introduction-to-R-with-Tidyverse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+            <div class="quarto-navbar-tools">
+    <a href="./Introduction-to-Quantitative-Analysis-and-Data-Visualisation-Using-R.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session1_notes.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R and RStudio</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -201,7 +184,7 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -237,28 +220,34 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./session5_notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research with RMarkdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research with R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data description</span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Data description</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exercise_solutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercise solutions</span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Exercise solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Setup</span></span></a>
   </div>
 </li>
       </ul>
@@ -273,23 +262,25 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-rstudio-interface" id="toc-the-rstudio-interface" class="nav-link active" data-scroll-target="#the-rstudio-interface"><span class="header-section-number">1.1</span> The RStudio interface</a>
+  <li><a href="#about-r" id="toc-about-r" class="nav-link active" data-scroll-target="#about-r"><span class="header-section-number">1.1</span> About R</a></li>
+  <li><a href="#conceptual-overview" id="toc-conceptual-overview" class="nav-link" data-scroll-target="#conceptual-overview"><span class="header-section-number">1.2</span> Conceptual Overview</a></li>
+  <li><a href="#the-rstudio-interface" id="toc-the-rstudio-interface" class="nav-link" data-scroll-target="#the-rstudio-interface"><span class="header-section-number">1.3</span> The RStudio interface</a>
   <ul class="collapse">
-  <li><a href="#interface-appearance" id="toc-interface-appearance" class="nav-link" data-scroll-target="#interface-appearance"><span class="header-section-number">1.1.1</span> Interface appearance</a></li>
+  <li><a href="#interface-appearance" id="toc-interface-appearance" class="nav-link" data-scroll-target="#interface-appearance"><span class="header-section-number">1.3.1</span> Interface appearance</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   </ul></li>
-  <li><a href="#r-syntax" id="toc-r-syntax" class="nav-link" data-scroll-target="#r-syntax"><span class="header-section-number">1.2</span> R syntax</a>
+  <li><a href="#r-syntax" id="toc-r-syntax" class="nav-link" data-scroll-target="#r-syntax"><span class="header-section-number">1.4</span> R syntax</a>
   <ul class="collapse">
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   </ul></li>
-  <li><a href="#r-objects-and-functions" id="toc-r-objects-and-functions" class="nav-link" data-scroll-target="#r-objects-and-functions"><span class="header-section-number">1.3</span> R objects and functions</a>
+  <li><a href="#r-objects-and-functions" id="toc-r-objects-and-functions" class="nav-link" data-scroll-target="#r-objects-and-functions"><span class="header-section-number">1.5</span> R objects and functions</a>
   <ul class="collapse">
-  <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects"><span class="header-section-number">1.3.1</span> Objects</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">1.3.2</span> Functions</a></li>
-  <li><a href="#help-files" id="toc-help-files" class="nav-link" data-scroll-target="#help-files"><span class="header-section-number">1.3.3</span> Help files</a></li>
-  <li><a href="#error-and-warning-messages" id="toc-error-and-warning-messages" class="nav-link" data-scroll-target="#error-and-warning-messages"><span class="header-section-number">1.3.4</span> Error and warning messages</a></li>
-  <li><a href="#cleaning-the-environment" id="toc-cleaning-the-environment" class="nav-link" data-scroll-target="#cleaning-the-environment"><span class="header-section-number">1.3.5</span> Cleaning the environment</a></li>
-  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><span class="header-section-number">1.3.6</span> R packages</a></li>
+  <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects"><span class="header-section-number">1.5.1</span> Objects</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">1.5.2</span> Functions</a></li>
+  <li><a href="#help-files" id="toc-help-files" class="nav-link" data-scroll-target="#help-files"><span class="header-section-number">1.5.3</span> Help files</a></li>
+  <li><a href="#error-and-warning-messages" id="toc-error-and-warning-messages" class="nav-link" data-scroll-target="#error-and-warning-messages"><span class="header-section-number">1.5.4</span> Error and warning messages</a></li>
+  <li><a href="#cleaning-the-environment" id="toc-cleaning-the-environment" class="nav-link" data-scroll-target="#cleaning-the-environment"><span class="header-section-number">1.5.5</span> Cleaning the environment</a></li>
+  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><span class="header-section-number">1.5.6</span> R packages</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -316,14 +307,50 @@ window.Quarto = {
 </header>
 
 
-<section id="the-rstudio-interface" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="the-rstudio-interface"><span class="header-section-number">1.1</span> The RStudio interface</h2>
+<section id="about-r" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="about-r"><span class="header-section-number">1.1</span> About R</h2>
+<p>R is programming language used for interactive data analysis. It is commonly used for statistical computing and visualisation. R was first developed at the University of Auckland by Ross Ihaka and Robert Gentlemen in 1993. Today is remains a popular choice for data analysis, data science and scientific work in various fields.</p>
+</section>
+<section id="conceptual-overview" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="conceptual-overview"><span class="header-section-number">1.2</span> Conceptual Overview</h2>
+<p>R comes bundled with a with core code base and a number of additional extensions (called R packages). These automatically come with R and are often referred to base R packages. In almost all real-world cases, additioanl R packages will be required to implement special algorithms or provide functionality not contained in the base R packages. These packages are developed by contributors around the world and submitted to <a href="https://cran.r-project.org/">CRAN (Comprehensive R Archive Network)</a>. This service is the primary location for downloading reliable and well developed R packages. Later we will show how to download additional R packages from CRAN.</p>
+<p>R as a standalone item of software is rarely used directly by users. Often an Interactive Development Environment (IDE) is used to provide a better user interface for working with R. The most common IDE in use for more R work is <a href="https://posit.co/downloads/">RStudio</a>, developed by Posit.</p>
+<p>For a quickstart guide on setting up R and RStudio see <a href="./setup.html">here</a></p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    User[User]
+    CRAN[CRAN Repository]
+
+    subgraph Computer[Computer]
+        RStudio[RStudio IDE]
+        R[R Software]
+        RStudio --&gt;|runs| R
+        R --&gt; |Bundled with| Base[Base Packages]
+    end
+
+    User --&gt;|uses| Computer
+    R --&gt;|downloads packages from| CRAN
+
+    style Computer fill:lightblue;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-rstudio-interface" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="the-rstudio-interface"><span class="header-section-number">1.3</span> The RStudio interface</h2>
 <p>There are a number of software packages based on the R programming language aimed at making writing and running analyses easier for users. They all run R in the background but look different and contain different features.</p>
 <p><strong>RStudio</strong> has been chosen for this course as it allows users to create script files, allowing code to be re-run, edited, and shared easily. RStudio also provides tools to help easily identify errors in R code, integrates help documentation into the main console and uses colour-coding to help read code at a glance.</p>
 <p>Before installing RStudio, we must ensure that R is downloaded onto the machine. R is available to download for free for Windows, Mac, or Linux via the <a href="https://cran.r-project.org/"><strong>CRAN</strong></a> website.</p>
 <p>Rstudio is also free to download from the <a href="https://posit.co/"><strong>Posit</strong></a> website.</p>
-<section id="the-rstudio-console-window" class="level4" data-number="1.1.0.1">
-<h4 data-number="1.1.0.1" class="anchored" data-anchor-id="the-rstudio-console-window"><span class="header-section-number">1.1.0.1</span> The RStudio console window</h4>
+<section id="the-rstudio-console-window" class="level4" data-number="1.3.0.1">
+<h4 data-number="1.3.0.1" class="anchored" data-anchor-id="the-rstudio-console-window"><span class="header-section-number">1.3.0.1</span> The RStudio console window</h4>
 <p>The screenshot below shows the RStudio interface which comprises of four windows:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -333,14 +360,16 @@ window.Quarto = {
 </div>
 <p><strong>Window A: R script files</strong></p>
 <p>All analysis and actions in R are carried out using the R syntax language. R script files allow you to write and edit code before running it in the console window.</p>
-<div class="stylebox">
-<div class="stylebox-header">
-<div class="stylebox-icon">
-
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Style tip</p>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
-<div class="stylebox-body">
+</div>
+<div class="callout-body-container callout-body">
 <p>Limit script files to 80 characters per line to ensure it is readable.</p>
 <p>RStudio has an option to add a margin that makes this easier to adhere to. Under the <em>Tools</em> drop-down menu, select <em>Global options</em>. Select <em>Code</em> from the list on the right, then under the <em>Display</em> tab, tick the <em>Show margin</em> box.</p>
 </div>
@@ -348,14 +377,16 @@ window.Quarto = {
 <p>If this window is not visible, create a new script file using <em>File -&gt; New File -&gt; R Script</em> from the drop-down menus or clicking the <img src="images/new_file_shortcut.png" class="img-fluid" alt="New file icon"> icon above the console and selecting <em>R Script</em>. This will open a new, blank script file. More than one script file can be open at the same time.</p>
 <p>Code entered into the script file does not run automatically. To run commands from the script, highlight the code and click the <img src="images/run_shortcut.png" class="img-fluid" alt="Run icon"> icon above the top right corner of the script window (this can be carried out by pressing <code>Ctrl + Enter</code> in Windows or <code>Command + Enter</code> on a Mac computer). More than one command can be run at the same time by highlighting all of them.</p>
 <p>The main advantage of using the script file rather than entering the code directly into the console is that it can be saved, edited and shared. To save a script file, use <em>File -&gt; Save As…</em> from the drop down menu, or click the <img src="images/save_shortcut.png" class="img-fluid" alt="save icon"> icon at the top of the window. It is important to save the script files at regular intervals to avoid losing work. Once the script file has been saved, we can also use the keyboard shortcuts <code>Ctrl + s</code> on Windows and <code>Command + s</code> on Mac to save the latest script file.</p>
-<div class="stylebox">
-<div class="stylebox-header">
-<div class="stylebox-icon">
-
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Style tip</p>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
-<div class="stylebox-body">
+</div>
+<div class="callout-body-container callout-body">
 <p>Script file names should be meaningful, lower case, and end in <code>.R</code>. Avoid using special characters in file names, including spaces. Use <code>_</code> instead of spaces.</p>
 <p>Where files should be run in a specific order, prefix the file name with numbers.</p>
 </div>
@@ -369,8 +400,8 @@ window.Quarto = {
 <p><strong>Window D: Files, plots, packages and help</strong></p>
 <p>This window has many potential uses: graphics are displayed and can be saved from here, and R help files will appear here. This window is only available in the RStudio interface and not in the basic R package.</p>
 </section>
-<section id="interface-appearance" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="interface-appearance"><span class="header-section-number">1.1.1</span> Interface appearance</h3>
+<section id="interface-appearance" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="interface-appearance"><span class="header-section-number">1.3.1</span> Interface appearance</h3>
 <p>To change the appearance of the interface window, including font size and background colour, select <code>Global options</code> under the <code>Tools</code> drop-down menu and select the Appearance tab.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -389,35 +420,24 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="r-syntax" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="r-syntax"><span class="header-section-number">1.2</span> R syntax</h2>
+<section id="r-syntax" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="r-syntax"><span class="header-section-number">1.4</span> R syntax</h2>
 <p>All analyses within R are carried out using <strong>syntax</strong>, the R programming language. It is important to note that R is case-sensitive, so always ensure that you use the correct combination of upper and lower case letters when running functions or calling objects.</p>
 <p>Any text written in the R console or script file can be treated the same as text from other documents or programmes: text can be highlighted, copied and pasted to make coding more efficient.</p>
 <p>When creating script files, it is important to ensure they are clear and easy to read. Comments can be added to script files using the <code>#</code> symbol. R will ignore any text following the <code>#</code> on the same line.</p>
-<div class="stylebox">
-<div class="stylebox-header">
-<div class="stylebox-icon">
-
-</div>
-<p>Style tip</p>
-</div>
-<div class="stylebox-body">
-<p>Combining <code>#</code> and <code>-</code> creates sections within a script file, making them easier to navigate and organise.</p>
 <p>For example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data ----------</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidy data ----------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Helpful hint
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -431,14 +451,16 @@ Helpful hint
 <li>Curly brackets <code>{ }</code> are used within loops, when creating a new function, and within <code>for</code> and <code>if</code> functions.</li>
 </ul>
 <p>All standard notation for mathematical calculations (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>, etc.) are compatible with R. At its simplest level, R is just a very powerful calculator!</p>
-<div class="stylebox">
-<div class="stylebox-header">
-<div class="stylebox-icon">
-
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Style tip</p>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
-<div class="stylebox-body">
+</div>
+<div class="callout-body-container callout-body">
 <p>Although R will work whether a space is added before/after a mathematical operator, the <a href="https://style.tidyverse.org/syntax.html">style guide</a> recommends to add them surrounding most mathematical operations (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), but not around <code>^</code>.</p>
 <p>For example:</p>
 <div class="cell">
@@ -448,7 +470,7 @@ Helpful hint
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Un-stylish code</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1959-683</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>(<span class="dv">351</span><span class="sc">+</span><span class="dv">457</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> (<span class="dv">213</span> <span class="sc">+</span> <span class="dv">169</span>) <span class="sc">^</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>(<span class="dv">351</span><span class="sc">+</span><span class="dv">457</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">-</span>(<span class="dv">213</span><span class="sc">+</span><span class="dv">169</span>)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -466,19 +488,21 @@ Helpful hint
 <p>When you have finished this exercise, select the entire script file (using <code>ctrl + a</code> on windows or <code>Command + a</code> on Mac) and run it to ensure there are no errors in the code.</p>
 </section>
 </section>
-<section id="r-objects-and-functions" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="r-objects-and-functions"><span class="header-section-number">1.3</span> R objects and functions</h2>
-<section id="objects" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="objects"><span class="header-section-number">1.3.1</span> Objects</h3>
+<section id="r-objects-and-functions" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="r-objects-and-functions"><span class="header-section-number">1.5</span> R objects and functions</h2>
+<section id="objects" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="objects"><span class="header-section-number">1.5.1</span> Objects</h3>
 <p>One of the main advantages to using R over other software packages such as SPSS is that more than one dataset can be accessed at the same time. A collection of data stored in any format within the R session is known as an <strong>object</strong>. Objects can include single numbers, single variables, entire datasets, lists of datasets, or even tables and graphs.</p>
-<div class="stylebox">
-<div class="stylebox-header">
-<div class="stylebox-icon">
-
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Style tip</p>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
-<div class="stylebox-body">
+</div>
+<div class="callout-body-container callout-body">
 <p>Object names should only contain lower case letters, numbers and <code>_</code> (instead of a space to separate words). The should be meaningful and concise.</p>
 </div>
 </div>
@@ -487,14 +511,16 @@ Helpful hint
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>object_1 <span class="ot">&lt;-</span> <span class="dv">81</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Creates an object in the environment named <code>object_1</code>, which takes the value <code>81</code>. This will appear in the environment window of the console (window C from the interface shown earlier).</p>
-<div class="stylebox">
-<div class="stylebox-header">
-<div class="stylebox-icon">
-
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Style tip</p>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
-<div class="stylebox-body">
+</div>
+<div class="callout-body-container callout-body">
 <p>Although both work, use <code>&lt;-</code> for assignment, not <code>=</code>.</p>
 </div>
 </div>
@@ -514,12 +540,17 @@ Helpful hint
 <p>The <code>[1]</code> that appears at the beginning of each output line indicates that this is the first element in the object. If there were two lines then the second line would start with the number of that element in square brackets.</p>
 <p>For example, if we had an object with 6 elements and when called the first line contained the first 5 elements, each line would begin with <code>[1]</code> and <code>[6]</code> respectively.</p>
 </section>
-<section id="functions" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="functions"><span class="header-section-number">1.3.2</span> Functions</h3>
-<p><strong>Functions</strong> are built-in commands that allow R users to run analyses. All functions require the definition of arguments within round brackets <code>()</code>. Each function requires different information and has different arguments that can be used to customise the analysis. A detailed list of these arguments and a description of the function can be found in the function’s associated <strong>help file</strong>.</p>
+<section id="functions" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="functions"><span class="header-section-number">1.5.2</span> Functions</h3>
+<p><strong>Functions</strong> are built-in commands that allow R users to run analyses. All functions require the definition of arguments within round brackets <code>()</code>. The code for the function is typically contained in curly braces <code>{}</code>. Each function requires different information and has different arguments that can be used to customise the analysis. A detailed list of these arguments and a description of the function can be found in the function’s associated <strong>help file</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>square_x <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    argument<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="help-files" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="help-files"><span class="header-section-number">1.3.3</span> Help files</h3>
+<section id="help-files" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="help-files"><span class="header-section-number">1.5.3</span> Help files</h3>
 <p>Each function that exists within R has an associated help file. RStudio does not require an internet connection to access these help files if the function is available in the current session of R.</p>
 <p>To retrieve help files, enter <code>?</code> followed by the function name into the console window, e.g <code>?mean</code>. The help file will appear in window D of the interface shown in the introduction.</p>
 <p>Help files contain the following information:</p>
@@ -533,32 +564,32 @@ Helpful hint
 <li>Examples: example code with applications of the function</li>
 </ul>
 </section>
-<section id="error-and-warning-messages" class="level3" data-number="1.3.4">
-<h3 data-number="1.3.4" class="anchored" data-anchor-id="error-and-warning-messages"><span class="header-section-number">1.3.4</span> Error and warning messages</h3>
-<p>Where a function or object has not been correctly specified, or their is some mistake in the syntax that has been sent to the console, R will return an error message. These messages are generally informative and include the location of the error.</p>
+<section id="error-and-warning-messages" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="error-and-warning-messages"><span class="header-section-number">1.5.4</span> Error and warning messages</h3>
+<p>Where a function or object has not been correctly specified, or there is some mistake in the syntax that has been sent to the console, R will return an error message. These messages are generally informative and include the location of the error.</p>
 <p>The most common errors include misspelling functions or objects:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(ojbect_1)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object 'ojbect_1' not found</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Sqrt</span>(object_1)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in Sqrt(object_1): could not find function "Sqrt"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(ojbect_1)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: object 'ojbect_1' not found</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Sqrt</span>(object_1)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in Sqrt(object_1): could not find function "Sqrt"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or where an object has not yet been specified:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object 'x' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: object 'x' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When R returns an error message, this means that the operation has been completely halted. R may also return warning messages which look similar to errors but does not necessarily mean the operation has been stopped.</p>
 <p>Warnings are included to indicate that R suspects something in the operation may be wrong and should be checked. There are occasions where warnings can be ignored but this is only after the operation has been checked.</p>
-<p>When working within the R console, if an incomplete command is run, a <code>+</code> symbol will appear in the console, rather than the usual <code>&gt;</code>. This indicates that R expects you to keep writing the previous code. To overcome this issue, either finish the command on the next line of the console, or press the <code>esc</code> button on your keyboard to start from scratch.</p>
+<p>When working within the R console, if an incomplete command is run, a <code>+</code> symbol will appear in the console, rather than the usual <code>&gt;</code>. This indicates that R expects you to keep writing the previous code. To overcome this issue, either finish the command on the next line of the console, or press the <code>Esc</code> button on your keyboard to start from scratch.</p>
 <p>One of the benefits of using RStudio rather than the basic R package is that it will suggest object or function names after typing the first few letters. This avoids spelling mistakes and accidental errors when running code. To accept the suggestion, either click the correct choice with your mouse or use the <code>tab</code> button on your keyboard.</p>
 </section>
-<section id="cleaning-the-environment" class="level3" data-number="1.3.5">
-<h3 data-number="1.3.5" class="anchored" data-anchor-id="cleaning-the-environment"><span class="header-section-number">1.3.5</span> Cleaning the environment</h3>
+<section id="cleaning-the-environment" class="level3" data-number="1.5.5">
+<h3 data-number="1.5.5" class="anchored" data-anchor-id="cleaning-the-environment"><span class="header-section-number">1.5.5</span> Cleaning the environment</h3>
 <p>To remove objects from the RStudio environment, we can use the <code>rm</code> function. This can be combined with the <code>ls()</code> function, which lists all objects in the environment, to remove all objects currently loaded:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -574,12 +605,12 @@ Warning
 </div>
 </div>
 </section>
-<section id="r-packages" class="level3" data-number="1.3.6">
-<h3 data-number="1.3.6" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">1.3.6</span> R packages</h3>
+<section id="r-packages" class="level3" data-number="1.5.6">
+<h3 data-number="1.5.6" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">1.5.6</span> R packages</h3>
 <p>R packages are a collection of functions and datasets developed by R users that expand existing R capabilities or add completely new ones. Packages allow users to apply the most up-to-date methods shortly after they are developed, unlike other statistical software packages that require an entirely new version.</p>
-<section id="installing-packages-from-cran" class="level4" data-number="1.3.6.1">
-<h4 data-number="1.3.6.1" class="anchored" data-anchor-id="installing-packages-from-cran"><span class="header-section-number">1.3.6.1</span> Installing packages from CRAN</h4>
-<p>The quickest way to install a package in R is by using the <code>install.packages</code> function. This sends RStudio to the online repository of tested and verified R packages (known as <a href="https://cran.r-project.org/">CRAN</a>) and downloads the package files onto the machine you are currently working from in temporary files. Ensure that the package you wish to install is spelled correctly and surrounded by <code>''</code>.</p>
+<section id="installing-packages-from-cran" class="level4" data-number="1.5.6.1">
+<h4 data-number="1.5.6.1" class="anchored" data-anchor-id="installing-packages-from-cran"><span class="header-section-number">1.5.6.1</span> Installing packages from CRAN</h4>
+<p>The quickest way to install a package in R is by using the <code>install.packages()</code> function. This sends RStudio to the online repository of tested and verified R packages (known as <a href="https://cran.r-project.org/">CRAN</a>) and downloads the package files onto the machine you are currently working from in temporary files. Ensure that the package you wish to install is spelled correctly and surrounded by <code>''</code>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -595,18 +626,20 @@ Warning
 </div>
 </div>
 </section>
-<section id="loading-packages-to-an-r-session" class="level4" data-number="1.3.6.2">
-<h4 data-number="1.3.6.2" class="anchored" data-anchor-id="loading-packages-to-an-r-session"><span class="header-section-number">1.3.6.2</span> Loading packages to an R session</h4>
-<p>Every time a new session of RStudio is opened, packages must be reloaded. To load a package into R (and gain access to the associated functions and data), use the <code>library</code> function.</p>
-<p>Loading a package does not require an internet connection, but will only work if the package has already been installed and saved onto the computer you are working from. If you are unsure, use the function <code>installed.packages</code> to return a list of all packages that are loaded onto the machine you are working from.</p>
-<div class="stylebox">
-<div class="stylebox-header">
-<div class="stylebox-icon">
-
+<section id="loading-packages-to-an-r-session" class="level4" data-number="1.5.6.2">
+<h4 data-number="1.5.6.2" class="anchored" data-anchor-id="loading-packages-to-an-r-session"><span class="header-section-number">1.5.6.2</span> Loading packages to an R session</h4>
+<p>Every time a new session of RStudio is opened, packages must be reloaded. To load a package into R (and gain access to the associated functions and data), use the <code>library()</code> function.</p>
+<p>Loading a package does not require an internet connection, but will only work if the package has already been installed and saved onto the computer you are working from. If you are unsure, use the function <code>installed.packages()</code> to return a list of all packages that are loaded onto the machine you are working from.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Style tip</p>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
-<div class="stylebox-body">
+</div>
+<div class="callout-body-container callout-body">
 <p>Add your <code>library</code> function at the beginning of your script file. This reminds you to re-load packages when opening a new R session, and reduces the chance of error messages from functions requiring these packages.</p>
 </div>
 </div>
@@ -796,18 +829,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -839,7 +861,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -847,7 +889,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -944,7 +986,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

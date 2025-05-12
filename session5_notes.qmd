@@ -1,7 +1,7 @@
-# Reproducible research with RMarkdown
+# Reproducible research with R Markdown
 
 ```{r setup, include=FALSE}
-pacman::p_load(tidyverse)
+library(tidyverse)
 
 knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, message = FALSE)
 
@@ -10,16 +10,15 @@ csp_2020 <- read_csv("data/CSP_2020.csv")
 csp_long2 <- read_csv("data/CSP_long_201520.csv")
 ```
 
-## Introduction to RMarkdown
-RMarkdown is a tool that is used to author high-quality documents, making it easy to communicate results efficiently. One of the main appeals of RMarkdown is that it is easy to integrate R code and output seamlessly into a document, encouraging openness and reproducibility in research.
+[R Markdown](https://rmarkdown.rstudio.com/) is a tool that is used to author high-quality documents, making it easy to communicate results efficiently. One of the main appeals of R Markdown is that it is easy to integrate R code and output seamlessly into a document, encouraging openness and reproducibility in research.
 
-There are a number of ways we can use RMarkdown to enhance the research process, such as:
+There are a number of ways we can use R Markdown to enhance the research process, such as:
 
-- Generating reports to show the latest findings in a project, combining research output with interpretations. Reports can be automated within RMarkdown, to ensure outputs show the latest data.
+- Generating reports to show the latest findings in a project, combining research output with interpretations. Reports can be automated within R Markdown, to ensure outputs show the latest data.
 - Keeping track of projects as an alternative to a notebook. Documents can include R code and visualisations alongside thoughts and comments on findings so far.
 - Creating a collaborative document that can be shared with colleagues. The inclusion of R code in documents provides an audit trail, making it easy to carry out quality assurance and resolve discrepancies in results.
 
-Before we begin working with RMarkdown in RStudio, we must first download and install the `rmarkdown` package as we would any other package:
+Before we begin working with R Markdown in RStudio, we must first download and install the `rmarkdown` package as we would any other package:
 
 ```{r install and load rmarkdown, eval = FALSE}
 install.packages("rmarkdown")
@@ -27,24 +26,24 @@ install.packages("rmarkdown")
 library(rmarkdown)
 ```
 
-### Creating an RMarkdown files
-RMarkdown files (`.Rmd`) are created and saved separately to the script files we have been using up to now on the course. To create a new RMarkdown file, either use the drop-down menu, following the *File -> New File -> R Markdown...* options, or using the ![new file icon](images/new_file_shortcut.png) icon and selecting *R Markdown...*.
+## Creating an R Markdown files
+R Markdown files (`.Rmd`) are created and saved separately to the script files we have been using up to now on the course. To create a new R Markdown file, either use the drop-down menu, following the *File -> New File -> R Markdown...* options, or using the ![new file icon](images/new_file_shortcut.png) icon and selecting *R Markdown...*.
 
-![Rmarkdown new file](images/rmarkdown_new.png)
+![R markdown new file](images/rmarkdown_new.png)
 
-When creating a new RMarkdown file, we are given the option to set the title, author and date of the new document. We are also given options to select the type of document, presentation, or Shiny app we would like to create. This does not give a comprehensive list of documents available within RMarkdown and can be changed later. We will discuss output document types in more detail later in the session.
+When creating a new R Markdown file, we are given the option to set the title, author and date of the new document. We are also given options to select the type of document, presentation, or Shiny app we would like to create. This does not give a comprehensive list of documents available within RMarkdown and can be changed later. We will discuss output document types in more detail later in the session.
 
-Clicking 'OK' on this window will produce an RMarkdown file (`.Rmd`) with some example code. If we do not want this, there is an option to 'Create Empty Document' on the bottom left of the window.
+Clicking 'OK' on this window will produce an R Markdown file (`.Rmd`) with some example code. If we do not want this, there is an option to 'Create Empty Document' on the bottom left of the window.
 
-### Rmarkdown content
-RMarkdown files contain three main types of content:
+## R markdown content
+R Markdown files contain three main types of content:
 
 - A YAML header (this sets the global options for the document)
 - Text, or syntax (this includes headings and comments)
 - Code chunks containing R code
 
-#### The YAML header
-The first part of an RMarkdown script, surrounded by '`---`' is known as the **YAML header**. This sets global options for the document that will be produced by the script. YAML headers can include the title, author and date of a document, the output document type, table of contents options, and can include code to edit the appearance of text and figures.
+### The YAML header
+The first part of an R Markdown script, surrounded by '`---`' is known as the **YAML header**. This sets global options for the document that will be produced by the script. YAML headers can include the title, author and date of a document, the output document type, table of contents options, and can include code to edit the appearance of text and figures.
 
 For this course, we will just use the YAML to define the `title`, `author`, `date`, and `output` of our document:
 
@@ -57,7 +56,7 @@ output: html_document
 ---
 ````
 
-There are many output document types that can be produced using RMarkdown. Some of the most common include:
+There are many output document types that can be produced using R Markdown. Some of the most common include:
 
 - `html_document`:HTML document,`.html`
 - `pdf_document`: PDF document,`.pdf`, created using a LaTeX template 
@@ -66,11 +65,11 @@ There are many output document types that can be produced using RMarkdown. Some 
 - `github_document`: Github document (`.md`, markdown files that are compatible with Github and are converted to HTML when viewed there)
 - `powerpoint_presentation`: Powerpoint presentation (`.pptx`)
 
-RMarkdown can also be combined with other R packages to create books (via `bookdown`), websites (via `blogdown`) and interactive dashboards (via `flexdashboard`).
+R Markdown can also be combined with other R packages to create books (via `{bookdown}`), websites (via `{blogdown}`) and interactive dashboards (via `{flexdashboard}`).
 
 
-#### RMarkdown syntax
-RMarkdown text, or syntax, will generally make up the majority of a RMarkdown file. This can include headers and subheadings, equations, and any other text or comments in the document. Text is formatted using **markdown syntax**. A detailed list of syntax commands are given in the RMarkdown [cheatsheet](https://rstudio.github.io/cheatsheets/html/rmarkdown.html#write-with-markdown). Common syntax commands that may be used in an RMarkdown document include:
+### R Markdown syntax
+R Markdown text, or syntax, will generally make up the majority of a R Markdown file. This can include headers and subheadings, equations, and any other text or comments in the document. Text is formatted using **markdown syntax**. A detailed list of syntax commands are given in the R Markdown [cheatsheet](https://rstudio.github.io/cheatsheets/html/rmarkdown.html). Common syntax commands that may be used in an R Markdown document include:
 
 - `*italic*`
 - `**bold**`
@@ -95,10 +94,10 @@ RMarkdown text, or syntax, will generally make up the majority of a RMarkdown fi
 
 ```Equation: $r^2 = (x - a)^2 + (y - b)^2$```
 
-*RMarkdown equations are built using the same language as LaTeX. [See here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a list of mathematical symbols that can be used in these equations.*
+*R Markdown equations are built using the same language as LaTeX. [See here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a list of mathematical symbols that can be used in these equations.*
 
-#### Code chunks
-Code chunks allow us to embed R code and outputs into our documents. This is one of the main draw of RMarkdown as it removes the need to copy and paste or import results from R into another document.
+### Code chunks
+Code chunks allow us to embed R code and outputs into our documents. This is one of the main draw of R Markdown as it removes the need to copy and paste or import results from R into another document.
 
 Code chunks are pieces of code that begin ` ```{r} ` 
 and end ` ``` `. For example, 
@@ -110,7 +109,7 @@ and end ` ``` `. For example,
 ````
 Code chunks can be created by manually typing these wrappers, by clicking the ![code chunk icon](images/code_chunk_icon.png) icon and selecting 'R', or using the keyboard shortcut `ctrl + alt + i` on Windows, and `Command + Option + i` on Mac.
 
-Code chunks can be given titles to make an RMarkdown script easier to navigate (these will appear under the script window where lists of subheadings appear in script files). These are added inside the opening of the code chunk: ` ```{r chunk title} `.
+Code chunks can be given titles to make an R Markdown script easier to navigate (these will appear under the script window where lists of subheadings appear in script files). These are added inside the opening of the code chunk: ` ```{r chunk title} `.
 
 There are a number of chunk options to customise which code/output to display in the document. These are included in the opening of a chunk, after the title, separated by commas `,`. Some of the most common, include:
 
@@ -119,8 +118,9 @@ There are a number of chunk options to customise which code/output to display in
 - `include = TRUE/FALSE`: whether to include anything from the chunk (code or output) in the document
 - `error/warning/message = TRUE/FALSE`: whether to display error/warning/other messages in the document
 
-**Top tip:** It may be useful to add a setup code chunk at the beginning of an RMarkdown file that loads any packages and datasets that are required for the rest of the document. These can also include universal options for future code chunks to avoid repeating the code, using the `knitr::opts_chunk$set` function. 
-
+:::{.callout-tip}
+It may be useful to add a setup code chunk at the beginning of an R Markdown file that loads any packages and datasets that are required for the rest of the document. These can also include universal options for future code chunks to avoid repeating the code, using the `knitr::opts_chunk$set` function. 
+ 
 For example:
 
 ````{verbatim}
@@ -135,24 +135,26 @@ library(tidyverse)
 ```
 ````
 
-### Compiling RMarkdown documents
-Compiling RMarkdown actually requires multiple steps and programmes. Luckily for us, this process takes place in the background so we don't need to be aware of these steps happening!
+::: 
 
-Generating an output file from RMarkdown is know **knitting** a document. This process sends the `.Rmd` file to another R package `knitr` (which is installed alongside `rmarkdown`), which executes all the code chunks in the document and creates a markdown `.md` file including the code and output. This markdown file is then processed by another programme **pandoc** which converts markdown code into the finished document. 
+## Compiling R Markdown documents
+Compiling R Markdown actually requires multiple steps and programmes. Luckily for us, this process takes place in the background so we don't need to be aware of these steps happening!
 
-![RMarkdown to document process](images/rmarkdown_pipe.png)
+Generating an output file from R Markdown is know **knitting** a document. This process sends the `.Rmd` file to another R package `{knitr}` (which is installed alongside `{rmarkdown}`), which executes all the code chunks in the document and creates a markdown `.md` file including the code and output. This markdown file is then processed by another programme **pandoc** which converts markdown code into the finished document. 
 
-To **knit** an RMarkdown file in RStudio is very simple. Either click the ![knit icon](images/knit_icon.png) icon above the RMarkdown script, or use the keyboard shortcut `ctrl + shift + k` on Windows or `Command + shift + k` on Mac. This initiates the process above and will return an output document (if there are no errors!) in the requested format to the working directory.
+![R Markdown to document process](images/rmarkdown_pipe.png)
 
-### Data visualisation in RMarkdown
+To **knit** an R Markdown file in RStudio is very simple. Either click the ![knit icon](images/knit_icon.png) icon above the R Markdown script, or use the keyboard shortcut `ctrl + shift + k` on Windows or `Command + shift + k` on Mac. This initiates the process above and will return an output document (if there are no errors!) in the requested format to the working directory.
+
+## Data visualisation in R Markdown
 Output such as graphs and tables can be embedded in code chunks, the code used to create them will be the same as it would be in any other R script. 
 
 :::{.callout-note} 
-Often, when providing output in RMarkdown, we often do not want to show the code that was used to create this. Make sure to add `echo = FALSE` to the opening of the code chunk.
+Often, when providing output in R Markdown, we often do not want to show the code that was used to create this. Make sure to add `echo = FALSE` to the opening of the code chunk.
 :::
 
-#### Graphs in RMarkdown
-`ggplot` can be used to create graphs that are embedded within code chunks and included in an output document. For example, we could use the data from previous sections to show the relationship between Settlement Funding Assessment (SFA) and council tax total in English local authorities in 2020, colour code by regions in a scatterplot:
+### Graphs in R Markdown
+`{ggplot2}` can be used to create graphs that are embedded within code chunks and included in an output document. For example, we could use the data from previous sections to show the relationship between Settlement Funding Assessment (SFA) and council tax total in English local authorities in 2020, colour code by regions in a scatterplot:
 
 ````{verbatim}
 ```{r scatterplot sfa_2020 and ct_total_2020 by region, message = FALSE}
@@ -204,14 +206,14 @@ read_csv("data/CSP_2020.csv") %>%
   theme_light()
 ```
 
-#### Tables in RMarkdown
-There are a number of ways to include tables within RMarkdown which can either be entered manually, or generated using an R package. The choice of approach to creating tables depends on the format and size of the data, the amount of flexibility you would like to customise the output, the type of output document you are creating, and personal preference of how it should look.
+### Tables in R Markdown
+There are a number of ways to include tables within R Markdown which can either be entered manually, or generated using an R package. The choice of approach to creating tables depends on the format and size of the data, the amount of flexibility you would like to customise the output, the type of output document you are creating, and personal preference of how it should look.
 
-In this course, we will look at how tables can be created using RMarkdown syntax (without the need for additional packages), and using the `kable` function within the `knitr` package.
+In this course, we will look at how tables can be created using R Markdown syntax (without the need for additional packages), and using the `kable` function within the `{knitr}` package.
 
 **Manually creating tables** 
 
-Tables can be created in RMarkdown syntax, using the `|` symbol to separate columns, and dashes `-` to separate column headings from the body of the table. These are created outside of code chunks within the text. For example, 
+Tables can be created in R Markdown syntax, using the `|` symbol to separate columns, and dashes `-` to separate column headings from the body of the table. These are created outside of code chunks within the text. For example, 
 
 ```` {verbatim}
  Header 1 | Header 2 | Header 3 |
@@ -246,13 +248,13 @@ produces the following output:
 
 **Creating tables from data frames**
 
-The `knitr` package that compiles RMarkdown files contains the `kable` function that can be used to create simple data tables. The `kable` function requires data to be stored as a matrix, data frame, or tibble object (although these can be easily created using the `matrix`, `data.frame` or `tibble` functions). Accessing the help file `?knitr::kable` gives a list of arguments that can be used to customise these tables.
+The `{knitr}` package that compiles R Markdown files contains the `kable()` function that can be used to create simple data tables. The `kable()` function requires data to be stored as a matrix, data frame, or tibble object (although these can be easily created using the `matrix()`, `data.frame()` or `tibble()` functions). Accessing the help file `?knitr::kable` gives a list of arguments that can be used to customise these tables.
 
 :::{.callout-note} 
 As these tables are created using R functions, they must be generated within a code chunk.
 :::
 
-For example, we can create a simple data table using `kable` showing the first 6 rows of the `mtcars` dataset (a dataset pre-loaded into base R):
+For example, we can create a simple data table using `kable()` showing the first 6 rows of the `mtcars` dataset (a dataset pre-loaded into base R):
 
 ````{verbatim}
 ```{r mtcars table, echo = FALSE} 
@@ -266,7 +268,7 @@ which produces the following output:
 knitr::kable(head(mtcars))
 ```
 
-Where data are not already saved as an object, we need to create them first before generating a table. For example, the table we created manually earlier can be recreated using the `kable` function, by first creating a data frame with the information, and then piping it through to the function:
+Where data are not already saved as an object, we need to create them first before generating a table. For example, the table we created manually earlier can be recreated using the `kable()` function, by first creating a data frame with the information, and then piping it through to the function:
 
 ````{verbatim}
 ```{r kable table}
@@ -288,12 +290,12 @@ data.frame(col1 = c("This", "Very"),
 
 **Other ways to create tables**
 
-Although the `kable` function and RMarkdown syntax tables do not require additional R packages to be installed, they are fairly simple and do not give many options to customise the tables. For a more flexible alternative, I would recommend looking at the `flextable` package, which gives a much wider range of customisible features. The `flextable` user manual can be accessed for free from [this website](https://ardata-fr.github.io/flextable-book/).
+Although the `kable()` function and R Markdown syntax tables do not require additional R packages to be installed, they are fairly simple and do not give many options to customise the tables. For a more flexible alternative, I would recommend looking at the `{flextable}` package, which gives a much wider range of customisible features. The `{flextable}` user manual can be accessed for free from [this website](https://ardata-fr.github.io/flextable-book/).
 
 
 
-### Exercise 8 {.unnumbered} 
-Create an RMarkdown file that creates a html report describing the trends in core spending power in English local authorities between 2015 and 2020. Your report should include:
+## Exercise 8 {.unnumbered} 
+Create an R Markdown file that creates a html report describing the trends in core spending power in English local authorities between 2015 and 2020. Your report should include:
 
 - A summary table of the total spending per year per region
 - A suitable visualisation showing how the total annual spending has changed over this period, compared between regions

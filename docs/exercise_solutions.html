@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R with Tidyverse - Exercise solutions</title>
+<title>Appendix B — Exercise solutions – Introduction to Quantitative Analysis and Data Visualisation Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,18 +64,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./setup.html" rel="next">
 <link href="./data_description.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8d436d74498bbd5457388a3efe09766c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9828a0d4182cd2b8e9a8025f57f806eb.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -136,7 +137,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -144,55 +145,35 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Introduction to R with Tidyverse</span>
+    <span class="navbar-title">Introduction to Quantitative Analysis and Data Visualisation Using R</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/sophie-a-lee/"> <i class="bi bi-github" role="img" aria-label="Github">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://scubed.rbind.io/"> <i class="bi bi-book" role="img" aria-label="Website">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://x.com/SophieStats10"> <i class="bi bi-twitter" role="img" aria-label="Twitter">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/sophie-a-lee/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://buymeacoffee.com/sophie_a_lee"> <i class="bi bi-cup-hot" role="img" aria-label="Buy me a coffee">
+    <a class="nav-link" href="https://github.com/deanmarchiori/intro-quant-analysis"> <i class="bi bi-github" role="img" aria-label="Github">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
-    <a href="./Introduction-to-R-with-Tidyverse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+            <div class="quarto-navbar-tools">
+    <a href="./Introduction-to-Quantitative-Analysis-and-Data-Visualisation-Using-R.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_description.html">Appendices</a></li><li class="breadcrumb-item"><a href="./exercise_solutions.html">Exercise solutions</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_description.html">Appendices</a></li><li class="breadcrumb-item"><a href="./exercise_solutions.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Exercise solutions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -200,7 +181,7 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -236,14 +217,14 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./session5_notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research with RMarkdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research with R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -251,13 +232,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data description</span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Data description</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exercise_solutions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exercise solutions</span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Exercise solutions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Setup</span></span></a>
   </div>
 </li>
       </ul>
@@ -272,31 +259,23 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#solutions-1" id="toc-solutions-1" class="nav-link" data-scroll-target="#solutions-1">Solutions</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#solutions-2" id="toc-solutions-2" class="nav-link" data-scroll-target="#solutions-2">Solutions</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#solutions-3" id="toc-solutions-3" class="nav-link" data-scroll-target="#solutions-3">Solutions</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  <li><a href="#solutions-4" id="toc-solutions-4" class="nav-link" data-scroll-target="#solutions-4">Solutions</a></li>
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#solutions-5" id="toc-solutions-5" class="nav-link" data-scroll-target="#solutions-5">Solutions</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#solutions-6" id="toc-solutions-6" class="nav-link" data-scroll-target="#solutions-6">Solutions</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1"><span class="header-section-number">B.1</span> Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">B.2</span> Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">B.3</span> Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">B.4</span> Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">B.5</span> Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6"><span class="header-section-number">B.6</span> Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7"><span class="header-section-number">B.7</span> Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8"><span class="header-section-number">B.8</span> Exercise 8</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_description.html">Appendices</a></li><li class="breadcrumb-item"><a href="./exercise_solutions.html">Exercise solutions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_description.html">Appendices</a></li><li class="breadcrumb-item"><a href="./exercise_solutions.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Exercise solutions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Exercise solutions</h1>
+<h1 class="title">Appendix B — Exercise solutions</h1>
 </div>
 
 
@@ -313,22 +292,20 @@ window.Quarto = {
 </header>
 
 
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<section id="exercise-1" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">B.1</span> Exercise 1</h2>
 <ol type="1">
 <li>Open a new script file if you have not already done so.</li>
 <li>Save this script file into an appropriate location.</li>
 </ol>
-</section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+<p><strong>Solutions</strong></p>
 <ol type="1">
 <li>To open a new R script, click the <img src="images/open_shortcut.png" class="img-fluid" alt="new file icon"> icon and select ‘R script’.</li>
 <li>Save this file by following <strong>File -&gt; Save as…</strong> from the drop-down menu, selecting the folder you are working from in this course, and giving the file an appropriate name.</li>
 </ol>
 </section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<section id="exercise-2" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">B.2</span> Exercise 2</h2>
 <ol type="1">
 <li>Add your name and the date to the top of your script file (hint: comment this out so R does not try to run it)</li>
 <li>Use R to calculate the following calculations. Add the result to the same line of the script file in a way that ensures there are no errors in the code.</li>
@@ -339,9 +316,7 @@ window.Quarto = {
 <li><span class="math inline">\(96 \times 72\)</span></li>
 </ol>
 <p>When you have finished this exercise, select the entire script file (using <code>Ctrl + a</code> on windows or <code>Command + a</code> on Mac) and run it to ensure there are no errors in the code.</p>
-</section>
-<section id="solutions-1" class="level2">
-<h2 class="anchored" data-anchor-id="solutions-1">Solutions</h2>
+<p><strong>Solutions</strong></p>
 <ol type="1">
 <li><p>Add a <code>#</code> symbol to the script file before printing your name and the date,</p></li>
 <li><p>After running the calculation, copy and paste the result after a <code>#</code> symbol to ensure there are no errors:</p></li>
@@ -355,8 +330,8 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 6912</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<section id="exercise-3" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">B.3</span> Exercise 3</h2>
 <ol type="1">
 <li><p>How many local authorities were included in the London region?</p></li>
 <li><p>Give three different ways that it would be possible to select all spend variables (sfa_2020, nhb_2020, etc.) from the CSP_2020 dataset.</p></li>
@@ -366,9 +341,7 @@ window.Quarto = {
 <li>How many local authorities in the East Midlands had an SFA of between £5 and 10 million?</li>
 <li>Create a new variable with the total overall spend in 2020 for local authorities in the East Midlands.</li>
 </ol>
-</section>
-<section id="solutions-2" class="level2">
-<h2 class="anchored" data-anchor-id="solutions-2">Solutions</h2>
+<p><strong>Solutions</strong></p>
 <ol type="1">
 <li>First <code>filter</code> the data to return only rows which belong to the London region, then count the number of rows in this subgroup:</li>
 </ol>
@@ -435,17 +408,15 @@ window.Quarto = {
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>           nhb_2020 <span class="sc">+</span> nhb_return_2020 <span class="sc">+</span> rsdg_2020)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<section id="exercise-4" class="level2" data-number="B.4">
+<h2 data-number="B.4" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">B.4</span> Exercise 4</h2>
 <ol type="1">
 <li>Create a data frame with the minimum, maximum and median total spend per year for each region.</li>
 <li>Produce a frequency table containing the number and percentage of local authorities in each region.</li>
 <li>Convert the data object <code>csp_long2</code> back into wide format, with one row per local authority and one variable per total spend per year (<strong>HINT:</strong> start by selecting only the variables you need from the long data frame). Use the help file <code>?pivot_wider</code> and <code>vignette("pivot")</code> for more hints.</li>
 <li>Using your new wide data frame, calculate the difference in total spending for each local authority between 2015 and 2020. How many local authorities have had an overall reduction in spending since 2015?</li>
 </ol>
-</section>
-<section id="solutions-3" class="level2">
-<h2 class="anchored" data-anchor-id="solutions-3">Solutions</h2>
+<p><strong>Solutions</strong></p>
 <ol type="1">
 <li>Use the <code>summarise</code> function after grouping by the <code>year</code> and <code>region</code> variables:</li>
 </ol>
@@ -526,16 +497,14 @@ window.Quarto = {
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1   234</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<section id="exercise-5" class="level2" data-number="B.5">
+<h2 data-number="B.5" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">B.5</span> Exercise 5</h2>
 <ol type="1">
 <li>Create a new data object containing the 2020 CSP data without the Greater London Authority observation. Name this data frame <code>csp_nolon_2020</code>.</li>
 <li>Using the <code>csp_nolon_2020</code> data, create a data visualisation to check the distribution (or shape) of the SFA variable.</li>
 <li>Based on the visualisation above, create a summary table for the SFA variable containing the minimum and maximum, and appropriate measures of the centre/average and spread.</li>
 </ol>
-</section>
-<section id="solutions-4" class="level2">
-<h2 class="anchored" data-anchor-id="solutions-4">Solutions</h2>
+<p><strong>Solutions</strong></p>
 <ol type="1">
 <li>Create a new object using the <code>&lt;-</code> symbol, use <code>filter</code> to remove the duplicate row:</li>
 </ol>
@@ -571,8 +540,8 @@ window.Quarto = {
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1       0    470.       4.62    54.7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<section id="exercise-6" class="level2" data-number="B.6">
+<h2 data-number="B.6" class="anchored" data-anchor-id="exercise-6"><span class="header-section-number">B.6</span> Exercise 6</h2>
 <ol type="1">
 <li>What is the problem with the following code? Fix the code to change the shape of all the points.</li>
 </ol>
@@ -584,9 +553,7 @@ window.Quarto = {
 <li><p>Add a line of best fit to the scatterplot showing the relationship between SFA and council tax total (hint: use <code>?geom_smooth</code>).</p></li>
 <li><p>Add a line of best fit for each region (hint: make each line a different colour).</p></li>
 </ol>
-</section>
-<section id="solutions-5" class="level2">
-<h2 class="anchored" data-anchor-id="solutions-5">Solutions</h2>
+<p><strong>Solutions</strong></p>
 <ol type="1">
 <li>Only aesthetics determined by variables in the data should lie inside the <code>aes</code> function, the <code>shape</code> argument should be outside of this:</li>
 </ol>
@@ -634,12 +601,10 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<section id="exercise-7" class="level2" data-number="B.7">
+<h2 data-number="B.7" class="anchored" data-anchor-id="exercise-7"><span class="header-section-number">B.7</span> Exercise 7</h2>
 <p>Use an appropriate data visualisation to show how the total spend in each local authority has changed over the years between 2015 and 2020. Choose a visualisation that shows these trends over time and allows us to compare them between regions.</p>
-</section>
-<section id="solution" class="level2">
-<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<p><strong>Solutions</strong></p>
 <p>The most appropriate plot to show a change in variable over time is a line graph (with year on the x-axis and spend on the y-axis). To compare these between regions, we could set the colour of these lines, but as there are so many local authorities, this would overload the graph and make it hard to compare. As an alternative, we can facet this graph by region to show the line graphs on the same scale on the same output.</p>
 <p>Be sure to set appropriate axis labels, font sizes, etc.</p>
 <div class="cell">
@@ -668,8 +633,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<section id="exercise-8" class="level2" data-number="B.8">
+<h2 data-number="B.8" class="anchored" data-anchor-id="exercise-8"><span class="header-section-number">B.8</span> Exercise 8</h2>
 <p>Create an RMarkdown file that creates a html report describing the trends in core spending power in English local authorities between 2015 and 2020. Your report should include:</p>
 <ul>
 <li>A summary table of the total spending per year per region</li>
@@ -677,9 +642,7 @@ window.Quarto = {
 <li>A short interpretation of the table and visualisation</li>
 </ul>
 <p><strong>Note:</strong> You are not expected to be an expert in this data! Interpret these outputs as you would any other numeric variable measured over time.</p>
-</section>
-<section id="solutions-6" class="level2">
-<h2 class="anchored" data-anchor-id="solutions-6">Solutions</h2>
+<p><strong>Solutions</strong></p>
 <p>There are many different correct solutions to this exercise. All RMarkdown files should begin with a YAML header similar to the one below:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>title: "Core spending power in English local authorities, 2015 - 2020"</span>
@@ -926,18 +889,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -969,7 +921,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -977,7 +949,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1074,7 +1046,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1303,10 +1274,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./data_description.html" class="pagination-link" aria-label="Data description">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data description</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Data description</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./setup.html" class="pagination-link" aria-label="Setup">
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Setup</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
